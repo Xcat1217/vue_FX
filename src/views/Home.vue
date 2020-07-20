@@ -1,18 +1,38 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- 头部区域 -->
+    <index-header></index-header>
+    <!-- 中间内容区域 -->
+    <router-view></router-view>
+    <!-- 底部区域 -->
+    <!-- <index-footer></index-footer> -->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import Header from '../components/header'
+// import Footer from '../components/footer'
 export default {
-  name: 'Home',
+  created () {
+    if (this.$router.path !== '/index') {
+      this.$router.replace('/index')
+    }
+  },
+  data () {
+    return {
+
+    }
+  },
   components: {
-    HelloWorld
+    'index-header': Header
+    // 'index-footer': Footer
+  },
+  methods: {
+
   }
 }
 </script>
+
+<style lang="less" scoped>
+
+</style>
